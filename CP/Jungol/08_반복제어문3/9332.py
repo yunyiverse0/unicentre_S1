@@ -14,6 +14,7 @@ for i in range(N):
 # 일반식 = 2*(N - i) - 1
 
 
+
 # 지피티가 짜준 코드 틀
 N = int(input())
 
