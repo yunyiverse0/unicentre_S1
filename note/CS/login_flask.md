@@ -3,7 +3,7 @@
 
 ## 1. Flask 앱 생성
 
-설명: Flask 애플리케이션을 생성하고, secret_key를 설정한다.  
+Flask 애플리케이션을 생성하고 secret_key를 설정한다.  
 secret_key는 세션을 암호화하는 데 필요하다.
 
 ```python
@@ -15,8 +15,8 @@ app.secret_key = 'yunyi'
 
 ## 2. MySQL에서 사용자 로드
 
-설명: MySQL 서버에 연결한 뒤, users 테이블 전체 데이터를 가져온다.  
-결과는 리스트 안의 튜플 형태.
+MySQL 서버에 연결한 뒤 users 테이블 전체 데이터를 가져온다.  
+결과는 리스트 안의 튜플 형태다.
 
 ```python
 def load_users():
@@ -38,8 +38,8 @@ def load_users():
 
 ## 3. JSON 저장 함수
 
-설명: JSON 파일로 데이터를 저장하는 간단한 유틸 함수.  
-현재 프로젝트는 MySQL을 사용하지만 백업용으로 존재.
+JSON 파일로 데이터를 저장하는 간단한 유틸 함수.  
+현재 프로젝트는 MySQL을 사용하지만 백업용으로 존재한다.
 
 ```python
 def save_users(users_data):
@@ -51,7 +51,6 @@ def save_users(users_data):
 
 ## 4. 회원가입(register)
 
-설명:  
 - 비밀번호와 확인 비밀번호 비교  
 - username 중복 검사  
 - 새 사용자 저장  
@@ -91,7 +90,6 @@ def register():
 
 ## 5. 메인 페이지(index)
 
-설명:  
 서버 첫 접속 시 DB 연결이 정상인지 출력하고  
 /login 으로 리다이렉트한다.
 
@@ -107,7 +105,6 @@ def index():
 
 ## 6. 로그인(login)
 
-설명:  
 - DB에서 사용자 목록 불러오기  
 - 각 row(user)에서 user[0] = username, user[1] = password  
 - 일치하면 세션 생성 후 welcome 페이지 이동
@@ -136,7 +133,6 @@ def login():
 
 ## 7. 회원정보 수정(edit_profile)
 
-설명:  
 - 세션에 username 없으면 로그인 필요  
 - 새 비밀번호 / 비밀번호 확인 비교  
 - DB 데이터 업데이트 후 저장
@@ -177,8 +173,7 @@ def edit_profile():
 
 ## 8. 환영 페이지
 
-설명:  
-세션에서 username을 가져와 welcome 페이지에 전달.
+세션에서 username을 가져와 welcome 페이지에 전달한다.
 
 ```python
 @app.route('/welcome')
@@ -191,8 +186,7 @@ def welcome():
 
 ## 9. 로그아웃
 
-설명:  
-세션 삭제 후 /login 리다이렉트.
+세션 삭제 후 /login 리다이렉트한다.
 
 ```python
 @app.route('/logout')
