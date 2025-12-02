@@ -5,7 +5,8 @@ import mysql.connector
 app = Flask(__name__)
 app.secret_key = 'yunyi'
 
-# ---------------------- DB 사용자 로드 ----------------------
+
+# DB 사용자 로드
 def load_users():
     conn = mysql.connector.connect(
         host='127.0.0.1',
@@ -22,7 +23,7 @@ def load_users():
     return res
 
 
-# ---------------------- JSON 저장 ----------------------
+# JSON 저장
 def save_users(users_data):
     try:
         with open('users.json', 'w', encoding='utf-8') as f:
@@ -31,7 +32,7 @@ def save_users(users_data):
         print(f"Error saving users.json: {e}")
 
 
-# ---------------------- 회원가입 ----------------------
+# 회원가입
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if 'username' in session:
@@ -61,7 +62,7 @@ def register():
     return render_template('register.html')
 
 
-# ---------------------- 메인(index) ----------------------
+# 메인(index)
 @app.route('/')
 def index():
     data = load_users()
@@ -69,7 +70,7 @@ def index():
     return redirect('login')
 
 
-# ---------------------- 로그인 ----------------------
+# 로그인
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     data = load_users()
@@ -91,7 +92,7 @@ def login():
     return render_template('login.html')
 
 
-# ---------------------- 회원정보 수정 ----------------------
+# 회원정보 수정
 @app.route('/edit_profile', methods=['GET', 'POST'])
 def edit_profile():
     if 'username' not in session:
@@ -123,20 +124,20 @@ def edit_profile():
     return render_template('edit_profile.html', username=username)
 
 
-# ---------------------- 환영 페이지 ----------------------
+# 환영 페이지
 @app.route('/welcome')
 def welcome():
     username = session.get('username')
     return render_template('welcome.html', username=username)
 
 
-# ---------------------- 로그아웃 ----------------------
+# 로그아웃
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('login'))
 
 
-# ---------------------- 앱 실행 ----------------------
+# 앱 실행
 if __name__ == '__main__':
     app.run(debug=True)
