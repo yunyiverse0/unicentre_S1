@@ -1,11 +1,6 @@
 ```markdown
 # Flask + MySQL 로그인/회원가입 전체 정리
 
-이 문서는 Flask 로그인/회원가입 과정 전체를 한 번에 볼 수 있도록  
-**설명 + 코드가 모두 포함된 Markdown 파일**입니다.
-
----
-
 ## 1. Flask 앱 생성
 
 설명: Flask 애플리케이션을 생성하고, secret_key를 설정한다.  
