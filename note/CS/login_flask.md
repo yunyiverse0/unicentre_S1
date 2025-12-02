@@ -15,8 +15,8 @@ app.secret_key = 'yunyi'
 
 ## 2. MySQL에서 사용자 로드
 
-MySQL 서버에 연결한 뒤 users 테이블 전체 데이터를 가져온다.  
-결과는 리스트 안의 튜플 형태다.
+MySQL 서버에 연결한 뒤 users 테이블 전체 데이터를 가져옴 
+결과는 리스트 안의 튜플 형태
 
 ```python
 def load_users():
@@ -26,13 +26,28 @@ def load_users():
         password='Mm2478510!!',
         database='한빛무역',
     )
+```
+host: 내 Flask 서버가 어디에 있는 MySQL 서버랑 연결할지 
+    - '127.0.0.1', 'localhost': 로컬 컴퓨터 
+    - '컴퓨터_IP주소': MySQL이 다른 컴퓨터나 다른 서버에 있을 때 해당 컴퓨터의 IP주소
+
+user: MySQL에 로그인 할 때 계정
+    - root: 관리자 권한 (고정)
+    -> 실제 서비스에선 user='app_user'(변경가능) 사용
+    
+```python
+
     cursor = conn.cursor()
 
     select_query = "SELECT * FROM 한빛무역.users"
     cursor.execute(select_query)
     res = cursor.fetchall()
     return res
+
 ```
+cursor(): MySQL 서버에 SQL 명령을 보내기 위한 전용 객체 생성
+cursor.execute(): MySQL 서버에 SQL 실행 요청
+cursor.fetchall(): result set(결과 행 전부)을 Python으로 가져오기
 
 ---
 
@@ -46,6 +61,8 @@ def save_users(users_data):
     with open('users.json', 'w', encoding='utf-8') as f:
         json.dump(users_data, f, indent=4, ensure_ascii=False)
 ```
+- dump(json 모듈 안 함수 이름): pyhon data를 JSON형식으로 file에 '직접' 써주는 기능
+- dumps: 문자열로 변환해서 return 
 
 ---
 
