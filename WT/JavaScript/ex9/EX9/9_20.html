@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>키 이벤트</title>
+<script>
+    function whatKeyDown(e) {
+        let str = "";
+        let div = document.getElementById("div");
+        div.innerHTML = "";
+        str += "e.key = " + e.key + "<br>";
+        str += "e.code = " + e.code + "<br>";
+        div.innerHTML = str;    
+    }
+</script>
+</head>
+
+<body>
+    <h3>키 리스너와 키 이벤트 객체의 프로퍼티</h3>
+    <hr>
+    택스트 창에 키를 눌러 보세요. alt, Ctrl, Shift 키도 가능합니다.<br><br>
+    <input type="text" style="width:300px;" onkeydown=" whatKeyDown(event) ">
+    <div id = "div" style = "background-color: skyblue; width: 250px; height: 50px;">
+    </div>
+</body>
+</html>
