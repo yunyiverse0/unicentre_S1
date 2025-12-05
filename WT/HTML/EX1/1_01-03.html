@@ -13,11 +13,25 @@
 					background-color : black; }
 			span { color : pink; font-size : 20px }
 		</style>
+
+		<script>
+			function show() {
+				document.getElementById("fig").src="https://tse1.mm.bing.net/th/id/OIP.CHnn93HbvPnbf4gQs4OoWgHaId?r=0&rs=1&pid=ImgDetMain&o=7&rm=3";
+			}
+
+			function hide() {
+				document.getElementById("fig").src="";
+			}
+		</script>
 	</head>
 	
 	<body>
-		<h3>Elvis presley</h3>
+		<h3 onmouseover="show()" onmouseout="hide()">Elvis presley</h3>
 		<hr>
+		<div>
+			<img id = "fig" src="">
+		</div>
+
 		He was an American singer and actor. <br>
 		In November 1956, he made his film debut in <span>Love Me Tennder</span>. <br>
 		He is often reffered to as "<span>the king of Rock and Roll</span>".
