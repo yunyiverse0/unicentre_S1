@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>키 이벤트 응용</title>
+<style>
+    td { width:50px; height:50px; border:1px solid orchid; }
+</style>
+
+<script>
+    let tds;
+    let prevIndex = 0, index = 0;
+
+    window.onload = function() {
+        tds = document.getElementsByTagName("td");
+        tds[index].style.backgroundColor = "orchid";
+    }
+
+    window.onkeydown = function(e) {
+        prevIndex = index; // 이전 위치 저장
+
+        switch(e.key) {
+            case "ArrowDown":
+                if (index == 24) index = -5;
+                if (index/5 >= 4) index -= 24;
+                else index += 5;
+                break;
+
+            case "ArrowUp":
+                if (index == 0) index = 29;
+                if (index/5 < 1) index += 24;
+                index -= 5;
+                break;
+
+            case "ArrowLeft":
+                if (index == 0) index = 25;
+                index --;
+                break;
+
+            case "ArrowRight":
+                if (index >= 24) index = -1;
+                index ++;
+                break;
+        }
+
+        // 색상 초기화 + 새 위치 색 칠하기
+        tds[prevIndex].style.backgroundColor = "";
+        tds[index].style.backgroundColor = "orchid";
+    }
+</script>
+
+</head>
+
+<body>
+    <h3>화살표 키로 셀 위로 이동하기</h3>
+    <table>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td></tr>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+</body>
+</html>
