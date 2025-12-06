@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset = 'utf=8'>
+		<title>개발자의 포멧 그대로 출력</title>
+    </head>
+
+	<body>
+		<h3>개발자의 포멧 그대로 출력하기</h3>
+        <hr>
+        <p>
+            &lt;p&gt; : 여러 개의 빈칸은 하나로, 여러 줄은 한 줄에 붙여서 출력됨
+        </p>
+
+        <hr>
+
+        <pre>
+            &lt;pre&gt; : 개발자가 작성한 포멧 그대로 출력됨 (사용자가 입력한 그대로)
+                    html programming code의 가독성을 좋게 하기 위해 들여쓰기를 사용했기에 
+                    문단이 중간에 배치되어 있는 것 처럼 보임
+        </pre>
+	</body>
+</html>
