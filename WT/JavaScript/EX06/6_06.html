@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf=8">
+    <title>변수 선언</title>
+</head>
+
+<body>
+    <h3>변수 선언(지역/전역/블록 변수)</h3>
+    <hr>
+
+    <script>
+        let x;               // 전역변수 선언(아직 값 없음, undefined)
+
+        function f() {       // f() 함수 정의 시작
+            let y;           // 지역변수 y 선언 (f 함수 안에서만 사용 가능)
+
+            x = 10;          // 전역변수 x에 값 10 저장
+            y = 20;          // 지역변수 y에 값 20 저장
+
+            z = 30;          // 선언 없이 사용 → 자동으로 전역변수 z 생성
+
+            if (y == 20) {   // y가 20이면 블록 내부 실행
+                let b = 40;  // 블록변수 b 선언(if {} 안에서만 존재)
+                b++;         // b = b + 1 → b는 41이 됨
+
+                // 블록 변수 b 값 출력 (41)
+                document.write("b = " + b + "<br>");
+            }
+
+            // 함수 내부에서 지역 변수 y 출력 (20)
+            document.write("함수 f() 내 지역변수 y = " + y + "<br>");
+        }
+
+        f();  // 함수 실행: 위의 변수 값들이 설정되고 화면에 출력됨
+
+        // 함수 f() 실행 후 전역 변수 x와 z 출력
+        document.write("전역변수 x = " + x + "<br>");  // x는 10
+        document.write("전역변수 z = " + z + "<br>");  // z는 30
+    </script>
+
+</body>
+
+</html>
