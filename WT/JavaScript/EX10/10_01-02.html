@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset = 'utf-8'>
+		<title>Opening window</title>
+        <script>
+            let newWin = null;  // 새로 연 윈도우 기억
+
+            function load(URL) {
+                newWin = 
+                window.open(URL, 'width=300, height=300, top=300');
+            }
+
+            function closenewWin() {
+                if (newWin == null || newWin.closed) // 새로 연 윈도우가 없거나 이미 닫혔으면
+                    return;
+                else
+                    newWin.close();  // 열어놓은 윈도우 닫기
+            }
+        </script>
+    </head>
+
+	<body>
+		<h3>window.open()으로 window열기</h3>
+        <hr>
+        <a href = "javascript:load('https://github.com/yunyiverse0', 'MyGitHub')">
+            My GitHub 열기</a><br>
+        <a href = "javascript:window.close()">
+            현재 window 닫기</a><br>
+        <a href = "javascript:closenewWin()">
+            새 window 닫기</a>
+	</body>
+</html>
