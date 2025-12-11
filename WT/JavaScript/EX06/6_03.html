@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset = 'utf=8'>
+		<title>script 코드에 자바스크립트 작성</title>
+
+        <script src = "6_03_script.js">
+        </script>
+    </head>
+
+	<body>
+		<h3>마우스를 이미지 위에 올려보세요.</h3>
+        <hr>
+        <img src = "media/apple.png" alt = "사과 이미지"
+                    onmouseover = "over(this)"
+                    onmouseout = "out(this)">
+	</body>
+</html>
+
+<!-- _________________________JavaScipt file code  (6_03_script.js)_________________________________-->
+
+function over(obj) {
+    obj.src = "media/apple.png";
+            }
+function out(obj) {
+    obj.src = "media/banana.png";
+            }
