@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset = 'utf=8'>
+		<title>캔버스 그리기 맛보기</title>
+    </head>
+
+	<body>
+		<h3>캔버스 그리기 맛보기</h3>
+        <hr>
+        <canvas id = "myCanvas" width = "250" height = "150" 
+                style = "background-color: lightblue;">
+        </canvas>
+
+        <script>
+            let canvas = document.getElementById("myCanvas");
+            let context = canvas.getContext("2d");
+
+            context.beginPath();
+            context.strokeStyle = "blue";
+            context.rect(30,30,50,50);
+            context.stroke();
+
+            context.beginPath();
+            context.fillStyle = "violet";
+            context.rect(60,60,50,50);
+            context.fill();
+
+            context.font = "20px Gothic";
+            context.fillStyle = "black";
+            context.fillText("Text in Canvas", 80, 30);
+        </script>
+	</body>
+</html>
